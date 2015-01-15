@@ -1,0 +1,915 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+The GGF takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this document or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any effort to identify any such rights. Copies of claims of rights made available for publication and any assurances of licenses to be made available, or the result of an attempt made to obtain a general license or permission for the use of such proprietary rights by implementers or users of this specification can be obtained from the GGF Secretariat.
+
+The GGF invites any interested party to bring to its attention any copyrights, patents or patent applications, or other proprietary rights which may cover technology that may be required to practice this recommendation. Please address the information to the GGF Executive Director.
+
+Copyright (C) Global Grid Forum (2003-2005). All Rights Reserved.
+
+This document and translations of it may be copied and furnished to others, and derivative works that comment on or otherwise explain it or assist in its implementation may be prepared, copied, published and distributed, in whole or in part, without restriction of any kind, provided that the above copyright notice and this paragraph are included on all such copies and derivative works. However, this document itself may not be modified in any way, such as by removing the copyright notice or references to the GGF or other organizations, except as needed for the purpose of developing Grid Recommendations in which case the procedures for copyrights defined in the GGF Document process must be followed, or as required to translate it into languages other than English.
+
+The limited permissions granted above are perpetual and will not be revoked by the GGF or its successors or assigns.
+This document and the information contained herein is provided on an "AS IS" basis and THE GLOBAL GRID FORUM DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY RIGHTS OR ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE."
+
+-->
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.ggf.org/jsdl/2005/11/ssla" xmlns:ssla="http://schemas.ggf.org/jsdl/2005/11/ssla" targetNamespace="http://schemas.ggf.org/jsdl/2005/11/ssla" elementFormDefault="qualified">
+
+
+	<!--========================================================================-->
+	<!-- SIMPLE TYPES -->
+	
+	<xsd:simpleType name="ComplianceHIPAAEnumeration">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="HIPPA 16.CFR.318.3.a"/>
+			<xsd:enumeration value="HIPPA 16.CFR.318.5.a"/>
+			<xsd:enumeration value="HIPPA 45.CFR.160.410.a.1"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.306.a"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.308.a.1.i"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.308.a.1.ii.A"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.308.a.1.ii.B"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.308.a.1.ii.C"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.308.a.1.ii.D"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.308.a.2"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.308.a.3.i"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.308.a.3.ii.A"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.308.a.3.ii.B"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.308.a.3.ii.C"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.308.a.4.ii.A"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.308.a.4.ii.B"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.308.a.4.ii.C"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.308.a.5.ii.A"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.308.a.5.ii.B"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.308.a.5.ii.C"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.308.a.5.ii.D"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.308.a.6"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.308.a.7.ii.A"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.308.a.7.ii.B"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.308.a.7.ii.C"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.308.a.7.ii.D"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.308.a.7.ii.E"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.308.a.8"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.308.b.3"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.310.a.2.i"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.310.a.2.ii"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.310.a.2.iii"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.310.a.2.iv"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.310.b"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.310.c"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.310.d.2.i"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.310.d.2.ii"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.310.d.2.iii"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.310.d.2.iv"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.312.a.2.i"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.312.a.2.ii"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.312.a.2.iii"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.312.a.2.iv"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.312.b"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.312.d"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.312.e.2.i"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.312.e.2.ii"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.316.a"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.316.b.1.i"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.316.b.2.i"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.316.b.2.ii"/>
+			<xsd:enumeration value="HIPPA 45.CFR.164.316.b.2.iii"/>			
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ComplianceBITSEnumeration">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="BITS L1"/>
+			<xsd:enumeration value="HIPPA 16.CFR.318.5.a"/>
+			<xsd:enumeration value="BITS L11"/>
+			<xsd:enumeration value="BITS L2"/>
+			<xsd:enumeration value="BITS L4"/>
+			<xsd:enumeration value="BITS L7"/>
+			<xsd:enumeration value="BITS L9"/>						
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ComplianceCCMEnumeration">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="CCM CO-01"/>
+			<xsd:enumeration value="CCM CO-02"/>
+			<xsd:enumeration value="CCM CO-05"/>									
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ComplianceCOBITEnumeration">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="COBIT DS5.5"/>
+			<xsd:enumeration value="COBIT ME2.1"/>
+			<xsd:enumeration value="COBIT ME2.2"/>
+			<xsd:enumeration value="COBIT ME2.5"/>
+			<xsd:enumeration value="COBIT ME3.1"/>
+			<xsd:enumeration value="COBIT PO9.5"/>
+			<xsd:enumeration value="COBIT PO9.6"/>			
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ComplianceCSAEnumeration">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="CSA Domain2"/>
+			<xsd:enumeration value="CSA Domain4"/>						
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ComplianceENISAEnumeration">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ENISA 6.01.d"/>
+			<xsd:enumeration value="ENISA 6.03.e"/>
+			<xsd:enumeration value="ENISA 6.07.01.m"/>
+			<xsd:enumeration value="ENISA 6.07.01.n"/>
+			<xsd:enumeration value="ENISA 6.10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ComplianceFIPSEnumeration">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="FIPS 200"/>			
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ComplianceISOEnumeration">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ISO 27001"/>
+			<xsd:enumeration value="ISO 27002"/>
+			<xsd:enumeration value="ISO 27004"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ComplianceNISTEnumeration">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="NIST SP 800-53"/>
+			<xsd:enumeration value="NIST SP 800-55R1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="CompliancePCIDSSEnumeration">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="PCIDSS 11.2"/>
+			<xsd:enumeration value="PCIDSS 11.3"/>
+			<xsd:enumeration value="PCIDSS 12.1.2.b"/>
+			<xsd:enumeration value="PCIDSS 2.1.2.b"/>
+			<xsd:enumeration value="PCIDSS 3.1"/>
+			<xsd:enumeration value="PCIDSS 6.6"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ComplianceU.S.Dep.CommerceEnumeration">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Safe.Harbor.Framework"/>
+			<xsd:enumeration value="U.S.-EU"/>
+			<xsd:enumeration value="U.S.-Swiss"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ComplianceSASEnumeration">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="SAS70"/>			
+		</xsd:restriction>
+	</xsd:simpleType>
+
+		
+	<!-- COMPLEX TYPES :  -->
+	
+	<xsd:complexType name="SSLA">
+		<xsd:sequence>
+			<xsd:element ref="ssla:AccessControl" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Audit" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Compliance" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:CryptoSpec" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:DataPossession" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:DisasterDetectionRecovery" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Networking" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Processing" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Selectable" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Subcontractor3rdPartyApp" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Transparency" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:ViabilityProvider" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Vulnerability" minOccurs="0" maxOccurs="unbounded"/>				
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="AccessControl_Type">
+		<xsd:sequence>
+			<xsd:element ref="ssla:AccessControl_AccessAccounting" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:AccessControl_AccessAuthentication" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:AccessControl_AccessAuthoization" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:AccessControl_MobileAccess" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:AccessControl_PasswordRequirement" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:AccessControl_SecurityQuestions" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="Audit_Type">
+		<xsd:sequence>
+			<xsd:element ref="ssla:Audit_Certification" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Audit_CustomerPrivacy" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Audit_ExternalAudit" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Audit_InternalAudit" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Audit_Log" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Audit_PercentOfSecExcept" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Audit_PercentOfSecReview" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Audit_RealtimeMonitor" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Audit_RiskManagement" minOccurs="0" maxOccurs="unbounded"/>			
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="Compliance_Type">
+		<xsd:sequence>
+			<xsd:element ref="ssla:Compliance_BITS" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Compliance_CCM" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Compliance_COBIT" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Compliance_CSA" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Compliance_DIACP" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Compliance_ENISA" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Compliance_FIPS" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Compliance_HIPAA" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Compliance_ISO" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Compliance_NIST" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Compliance_PCIDSS" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Compliance_SAS" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Compliance_U.S.Dep.Commerce" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="CryptoSpec_Type">
+		<!-- Under Construction -->
+	</xsd:complexType>
+
+	<xsd:complexType name="DataPossession_Type">
+		<xsd:sequence>
+			<xsd:element ref="ssla:DataBackup Storage" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:DataPossession_Data Store Procedure" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:DataPossession_Data Verification Method" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:DataPossession_Data Verification Period" minOccurs="0" maxOccurs="unbounded"/>			
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="DisasterDetectionRecovery_Type">
+		<xsd:sequence>
+			<xsd:element ref="ssla:DataBackup Storage" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:DisasterDetectionRecovery_ContingencyPlan" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:DisasterDetectionRecovery_SecurityIncidentProcedure" minOccurs="0" maxOccurs="unbounded"/>			
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="Networking_Type">
+		<xsd:sequence>
+			<xsd:element ref="ssla:SSLEnforced" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Networking_SecureTransmission" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Networking_IPAddressQuantity" minOccurs="0" maxOccurs="unbounded"/>			
+			<xsd:element ref="ssla:Networking_IndividualBandwidth" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Networking_TrafficIsolation" minOccurs="0" maxOccurs="unbounded"/>			
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="Processing_Type">
+		<xsd:sequence>
+			<xsd:element ref="ssla:SSLEnforced" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Processing_SecureRuntimeEnvironment" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Processing_Application integrity" minOccurs="0" maxOccurs="unbounded"/>			
+			<xsd:element ref="ssla:Processing_Application isolation" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Processing_Application location" minOccurs="0" maxOccurs="unbounded"/>			
+			<xsd:element ref="ssla:Processing_Application portability" minOccurs="0" maxOccurs="unbounded"/>			
+			<xsd:element ref="ssla:Processing_Queue service capability" minOccurs="0" maxOccurs="unbounded"/>			
+			<xsd:element ref="ssla:Processing_Virtual firewall" minOccurs="0" maxOccurs="unbounded"/>			
+			<xsd:element ref="ssla:Processing_Virtual machine migration" minOccurs="0" maxOccurs="unbounded"/>			
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="Selectable_Type">
+		<!-- Under Construction -->
+	</xsd:complexType>
+
+	<xsd:complexType name="Subcontractor3rdPartyApp_Type">
+		<!-- Under Construction -->
+	</xsd:complexType>
+
+	<xsd:complexType name="Transparency_Type">
+		<xsd:sequence>
+			<xsd:element ref="ssla:Transparency_Accountable Security Officer" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Transparency_Independent Audit" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Transparency_Security Group" minOccurs="0" maxOccurs="unbounded"/>						
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="ViabilityProvider_Type">
+		<!-- Under Construction -->
+	</xsd:complexType>
+	
+	<xsd:complexType name="Vulnerability_Type">
+		<xsd:sequence>
+			<xsd:element ref="ssla:Vulnerability_MalwareDection" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Vulnerability_PatchManagement" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Vulnerability_ManagementCoverageRate" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Vulnerability_PatchPolicyComplianceRate" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Vulnerability_ScanFrequency" minOccurs="0" maxOccurs="unbounded"/>		
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="Compliance_BITS_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="BITS_item" type="ComplianceBITSEnumeration" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="Compliance_CCM_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="CCM_item" type="ComplianceCCMEnumeration" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>		
+	</xsd:complexType>
+
+	<xsd:complexType name="Compliance_COBIT_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="COBIT_item" type="ComplianceCOBITEnumeration" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="Compliance_CSA_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="CSA_item" type="ComplianceCSAEnumeration" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="Compliance_DIACP_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="DIACP_item" type="ComplianceDIACPEnumeration" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>		
+	</xsd:complexType>
+
+	<xsd:complexType name="Compliance_ENISA_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="ENISA_item" type="ComplianceENISAEnumeration" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="Compliance_FIPS_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="FIPS_item" type="ComplianceFIPSEnumeration" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="Compliance_HIPAA_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="HIPAA_item" type="ComplianceHIPAAEnumeration" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="Compliance_ISO_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="ISO_item" type="ComplianceISOEnumeration" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="Compliance_NIST_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="NIST_item" type="ComplianceNISTEnumeration" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="Compliance_PCIDSS_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="PCIDSS_item" type="CompliancePCIDSSEnumeration" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="Compliance_SAS_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="SAS_item" type="ComplianceSASEnumeration" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="Compliance_U.S.Dep.Commerce_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="U.S.Dep.Commerce_item" type="ComplianceU.S.Dep.CommerceEnumeration" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>	
+
+	<xsd:complexType name="AccessControl_AccessAccounting_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="AccessAccounting_item" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="AccessControl_AccessAuthentication_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="AccessAuthentication_item" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="AccessControl_AccessAuthoization_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="AccessAuthoization_item" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="AccessControl_MobileAccess_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="MobileAccess_item" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="AccessControl_PasswordRequirement_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="PasswordRequirement_item" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="AccessControl_SecurityQuestions_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="SecurityQuestions_item" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+	
+	<xsd:complexType name="Audit_Certification_Type">
+		<!-- Under Construction -->
+	</xsd:complexType>
+
+	<xsd:complexType name="Audit_CustomerPrivacy_Type">
+		<!-- Under Construction -->
+	</xsd:complexType>
+
+	<xsd:complexType name="Audit_ExternalAudit_Type">
+		<xsd:sequence>
+			<xsd:element ref="ssla:ExternalAudit_ThirdPartyAudit" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="Audit_InternalAudit_Type">
+		<xsd:sequence>
+			<xsd:element ref="ssla:InternalAudit_AuditPlan" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:ChangeControl" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="Audit_Log_Type">
+		<xsd:sequence>
+			<xsd:element ref="ssla:ChangeControl" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Log_Log Retention Time" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:Log_Security Log" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="Audit_PercentOfSecExcept_Type">
+		<!-- Under Construction -->
+	</xsd:complexType>
+	
+	<xsd:complexType name="Audit_PercentOfSecReview_Type">
+		<!-- Under Construction -->
+	</xsd:complexType>
+
+	<xsd:complexType name="Audit_RealtimeMonitor_Type">
+		<!-- Under Construction -->
+	</xsd:complexType>
+
+	<xsd:complexType name="Audit_RiskManagement_Type">
+		<xsd:sequence>
+			<xsd:element ref="ssla:RiskManagement_DataRiskAssessment" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="ssla:RiskManagement_RiskManagementProgram" minOccurs="0" maxOccurs="unbounded"/>			
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+
+	<xsd:complexType name="ExternalAudit_ThirdPartyAudit_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="ThirdPartyAudit_item" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="InternalAudit_AuditPlan">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="AuditPlan_item" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="ChangeControl">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="ChangeControl_item" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+	
+	<xsd:complexType name="Log_Log Retention Time_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="Log Retention Time_item" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="Log_Security Lo_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="Security Lo_item" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="RiskManagement_DataRiskAssessment_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="DataRiskAssessment_item" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+	
+	<xsd:complexType name="RiskManagement_RiskManagementProgram_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="RiskManagementProgram_item" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="DataBackup Storage_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="DataBackup Storage_item" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="DataPossession_Data Store Procedure_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="Data Store Procedure_item" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="DataPossession_Data Verification Method_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="Data Verification Methode_item" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="DataPossession_Data Verification Period_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="Data Verification Period_item" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="DisasterDetectionRecovery_ContingencyPlan_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="ContingencyPlan_item" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="DisasterDetectionRecovery_SecurityIncidentProcedure_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="SecurityIncidentProcedure_item" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="SSLEnforced_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="SSLEnforced_item" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="Networking_SecureTransmission_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="SecureTransmission_item" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="Networking_IPAddressQuantity_Type">
+		<!-- Under Construction -->
+	</xsd:complexType>
+
+	<xsd:complexType name="Networking_IndividualBandwidth_Type">
+		<!-- Under Construction -->
+	</xsd:complexType>	
+
+	<xsd:complexType name="Networking_TrafficIsolation_Type">
+		<!-- Under Construction -->
+	</xsd:complexType>
+	
+	<xsd:complexType name="Processing_SecureRuntimeEnvironment_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="SecureRuntimeEnvironment_item" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="Processing_Application integrity_Type">
+		<!-- Under Construction -->
+	</xsd:complexType>
+
+	<xsd:complexType name="Processing_Application isolation_Type">
+		<!-- Under Construction -->
+	</xsd:complexType>
+
+	<xsd:complexType name="Processing_Application location_Type">
+		<!-- Under Construction -->
+	</xsd:complexType>
+			
+	<xsd:complexType name="Processing_Application portability_Type">
+		<!-- Under Construction -->
+	</xsd:complexType>	
+
+	<xsd:complexType name="Processing_Queue service capability_Type">
+		<!-- Under Construction -->
+	</xsd:complexType>
+				
+	<xsd:complexType name="Processing_Virtual firewall_Type">
+		<!-- Under Construction -->
+	</xsd:complexType>
+				
+	<xsd:complexType name="Processing_Virtual machine migration_Type">
+		<!-- Under Construction -->
+	</xsd:complexType>
+
+	<xsd:complexType name="Transparency_Accountable Security Officer_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="Accountable Security Officer_item" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="Transparency_Independent Audit_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="Independent Audit_item" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="Transparency_Security Group_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="Security Group_item" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="Vulnerability_MalwareDection_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="MalwareDection_item" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="Vulnerability_PatchManagement_Type">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:sequence>
+				<xsd:element name="PatchManagement_item" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:Status" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ssla:DescriptionNote" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>			
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="Vulnerability_ManagementCoverageRate_Type">
+		<!-- Under Construction -->
+	</xsd:complexType>
+
+	<xsd:complexType name="Vulnerability_PatchPolicyComplianceRate_Type">
+		<!-- Under Construction -->
+	</xsd:complexType>
+
+	<xsd:complexType name="Vulnerability_ScanFrequency_Type">
+		<!-- Under Construction -->
+	</xsd:complexType>
+
+
+	<xsd:complexType name="DescriptionNote_Type">
+		<xsd:sequence>
+			<xsd:element name="Description" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Note" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+
+
+
+
+
+
+	<xsd:element name="AccessControl" type="ssla:AccessControl_Type"/>
+	<xsd:element name="Audit" type="ssla:Audit_Type"/>
+	<xsd:element name="Compliance" type="ssla:Compliance_Type"/>
+	<xsd:element name="CryptoSpec" type="ssla:CryptoSpec_Type"/>
+	<xsd:element name="DataPossession" type="ssla:DataPossession_Type"/>
+	<xsd:element name="DisasterDetectionRecovery" type="ssla:DisasterDetectionRecovery_Type"/>
+	<xsd:element name="Networking" type="ssla:Networking_Type"/>
+	<xsd:element name="Processing" type="ssla:Processing_Type"/>
+	<xsd:element name="Selectable" type="ssla:Selectable_Type"/>
+	<xsd:element name="Subcontractor3rdPartyApp" type="ssla:Subcontractor3rdPartyApp_Type"/>
+	<xsd:element name="Transparency" type="ssla:Transparency_Type"/>
+	<xsd:element name="ViabilityProvider" type="ssla:ViabilityProvider_Type"/>
+	<xsd:element name="Vulnerability" type="ssla:Vulnerability_Type"/>
+	
+	<xsd:element name="Compliance_BITS" type="ssla:Compliance_BITS_Type"/>
+	<xsd:element name="Compliance_CCM" type="ssla:Compliance_CCM_Type"/>
+	<xsd:element name="Compliance_COBIT" type="ssla:Compliance_COBIT_Type"/>
+	<xsd:element name="Compliance_CSA" type="ssla:Compliance_CSA_Type"/>
+	<xsd:element name="Compliance_DIACP" type="ssla:Compliance_DIACP_Type"/>
+	<xsd:element name="Compliance_ENISA" type="ssla:Compliance_ENISA_Type"/>
+	<xsd:element name="Compliance_FIPS" type="ssla:Compliance_FIPS_Type"/>
+	<xsd:element name="Compliance_HIPAA" type="ssla:Compliance_HIPAA_Type"/>
+	<xsd:element name="Compliance_ISO" type="ssla:Compliance_ISO_Type"/>
+	<xsd:element name="Compliance_NIST" type="ssla:Compliance_NIST_Type"/>
+	<xsd:element name="Compliance_PCIDSS" type="ssla:Compliance_PCIDSS_Type"/>
+	<xsd:element name="Compliance_SAS" type="ssla:Compliance_SAS_Type"/>
+	<xsd:element name="Compliance_U.S.Dep.Commerce" type="ssla:Compliance_U.S.Dep.Commerce_Type"/>
+	
+	<xsd:element name="AccessControl_AccessAccounting" type="ssla:AccessControl_AccessAccounting_Type"/>
+	<xsd:element name="AccessControl_AccessAuthentication" type="ssla:AccessControl_AccessAuthentication_Type"/>
+	<xsd:element name="AccessControl_AccessAuthoization" type="ssla:AccessControl_AccessAuthoization_Type"/>
+	<xsd:element name="AccessControl_MobileAccess" type="ssla:AccessControl_MobileAccess_Type"/>
+	<xsd:element name="AccessControl_PasswordRequirement" type="ssla:AccessControl_PasswordRequirement_Type"/>
+	<xsd:element name="AccessControl_SecurityQuestions" type="ssla:AccessControl_SecurityQuestions_Type"/>
+	<xsd:element name="Audit_Certification" type="ssla:Audit_Certification_Type"/>
+	<xsd:element name="Audit_CustomerPrivacy" type="ssla:Audit_CustomerPrivacy_Type"/>
+	<xsd:element name="Audit_ExternalAudit" type="ssla:Audit_ExternalAudit_Type"/>
+	<xsd:element name="Audit_InternalAudit" type="ssla:Audit_InternalAudit_Type"/>
+	<xsd:element name="Audit_Log" type="ssla:Audit_Log_Type"/>
+	<xsd:element name="Audit_PercentOfSecExcept" type="ssla:Audit_PercentOfSecExcept_Type"/>
+	<xsd:element name="Audit_PercentOfSecReview" type="ssla:Audit_PercentOfSecReview_Type"/>
+	<xsd:element name="Audit_RealtimeMonitor" type="ssla:Audit_RealtimeMonitor_Type"/>
+	<xsd:element name="Audit_RiskManagement" type="ssla:Audit_RiskManagement_Type"/>
+	<xsd:element name="ExternalAudit_ThirdPartyAudit" type="ssla:ExternalAudit_ThirdPartyAudit_Type"/>
+	<xsd:element name="InternalAudit_AuditPlan" type="ssla:InternalAudit_AuditPlan"/>
+	<xsd:element name="ChangeControl" type="ssla:ChangeControl"/>
+	<xsd:element name="Log_Log Retention Time" type="ssla:Log_Log Retention Time_Type"/>
+	<xsd:element name="Log_Security Log" type="ssla:Log_Security Log_Type"/>	
+	<xsd:element name="RiskManagement_DataRiskAssessment" type="ssla:RiskManagement_DataRiskAssessment_Type"/>
+	<xsd:element name="RiskManagement_RiskManagementProgram" type="ssla:RiskManagement_RiskManagementProgram_Type"/>
+	<xsd:element name="DataBackup Storage" type="ssla:DataBackup Storage_Type"/>
+	<xsd:element name="DataPossession_Data Store Procedure" type="ssla:DataPossession_Data Store Procedure_Type"/>
+	<xsd:element name="DataPossession_Data Verification Method" type="ssla:DataPossession_Data Verification Method_Type"/>
+	<xsd:element name="DataPossession_Data Verification Period" type="ssla:DataPossession_Data Verification Period_Type"/>
+	<xsd:element name="DisasterDetectionRecovery_ContingencyPlan" type="ssla:DisasterDetectionRecovery_ContingencyPlan_Type"/>
+	<xsd:element name="DisasterDetectionRecovery_SecurityIncidentProcedure" type="ssla:DisasterDetectionRecovery_SecurityIncidentProcedure_Type"/>
+	<xsd:element name="SSLEnforced" type="ssla:SSLEnforced_Type"/>
+	<xsd:element name="Networking_SecureTransmission" type="ssla:Networking_SecureTransmission_Type"/>
+	<xsd:element name="Networking_IPAddressQuantity" type="ssla:Networking_IPAddressQuantity_Type"/>			
+	<xsd:element name="Networking_IndividualBandwidth" type="ssla:Networking_IndividualBandwidth_Type"/>
+	<xsd:element name="Networking_TrafficIsolation" type="ssla:Networking_TrafficIsolation_Type"/>
+	<xsd:element name="Processing_SecureRuntimeEnvironment" type="ssla:Processing_SecureRuntimeEnvironment_Type"/>			
+	<xsd:element name="Processing_Application integrity" type="ssla:Processing_Application integrity_Type"/>			
+	<xsd:element name="Processing_Application isolation" type="ssla:Processing_Application isolation_Type"/>			
+	<xsd:element name="Processing_Application location" type="ssla:Processing_Application location_Type"/>			
+	<xsd:element name="Processing_Application portability" type="ssla:Processing_Application portability_Type"/>			
+	<xsd:element name="Processing_Queue service capability" type="ssla:Processing_Queue service capability_Type"/>			
+	<xsd:element name="Processing_Virtual firewall" type="ssla:Processing_Virtual firewall_Type"/>
+	<xsd:element name="Processing_Virtual machine migration" type="ssla:Processing_Virtual machine migration_Type"/>			
+	<xsd:element name="Transparency_Accountable Security Officer" type="ssla:Transparency_Accountable Security Officer_Type"/>			
+	<xsd:element name="Transparency_Independent Audit" type="ssla:Transparency_Independent Audit_Type"/>			
+	<xsd:element name="Transparency_Security Group" type="ssla:Transparency_Security Group_Type"/>
+
+	<xsd:element name="Vulnerability_MalwareDection" type="ssla:Vulnerability_MalwareDection_Type"/>
+	<xsd:element name="Vulnerability_PatchManagement" type="ssla:Vulnerability_PatchManagement_Type"/>
+	<xsd:element name="Vulnerability_ManagementCoverageRate" type="ssla:Vulnerability_ManagementCoverageRate_Type"/>
+	<xsd:element name="Vulnerability_PatchPolicyComplianceRate" type="ssla:Vulnerability_PatchPolicyComplianceRate_Type"/>
+	<xsd:element name="Vulnerability_ScanFrequency" type="ssla:Vulnerability_ScanFrequency_Type"/>
+
+
+	<xsd:element name="Status" type="xsd:string"/>
+	<xsd:element name="DescriptionNote" type="ssla:DescriptionNote_Type"/>
+
+</xsd:schema>
