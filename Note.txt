@@ -1,0 +1,90 @@
+I changed the template and factory id back to the sample ids and the test worked fine.
+
+
+I guess your problem is that the initiator agreement id is not automatically set by the API when creating an agreement offer from a negotiated offer. As I explained before, the initiator id is primarily foreseen by the specification for symmetric signaling scenarios. If you want to use the initiator EPR in a custom scenario in a slightly different way, this is still possible. In that case you need to set the EPR in your code. 
+
+The following snippet illustrates this:
+
+AgreementOfferType offer = new AgreementOfferType(selectedCounterOffer );
+
+offer.setInitiatorEPR(EndpointReferenceType.Factory.newInstance() );
+
+offer.getInitiatorEPR().addNewAddress().setStringValue("http://foo.org"; );
+
+System.out.println( "EPR in client \n" + offer.getInitiatorEPR() );
+
+AgreementClient agreement = getFactoryClient().createAgreement( offer );
+
+On the server side you can than query the agreement initiator with the
+normal API, i.e.:
+
+            offer.getInitiatorEPR();
+
+------------------------------------
+
+the process is slightly different. The idea is when a new negotiation
+instance is created, the first thing that has to be done is to
+identify the responsibilities of the negotiating parties. Therefore we
+pass in the negotiation context. That context provides the metadata
+for the new negotiation instance and clarifies the roles and
+responsibilities. Let's take a look on the following code in order to
+illustrate the idea:
+
+NegotiationContextDocument negContextDoc =
+NegotiationContextDocument.Factory.newInstance();
+NegotiationContextType negContext = negContextDoc.addNewNegotiationContext();
+negContext.setAgreementFactoryEPR(factory.getEndpoint());
+negContext.setAgreementResponder(NegotiationRoleType.NEGOTIATION_RESPONDER);
+
+This code creates a new negotiation context and sets an agreement
+factory endpoint. This endpoint identifies the agreement factory for
+which an agreement offer is negotiated. If a suitable offer was
+negotiated this factory is the place to create the agreement with,
+because this factory should be aware of the preceding negotiation
+process. The property agreement responder specifies that the responder
+of an agreement creation request (that is the agreement factory) is
+the same party as the negotiation responder. In other words, the party
+that initiates the negotiation process must also send the create
+agreement request. That's all what is specified in the context, no EPR
+yet.
+
+Basically, this is a very specific signaling scenario. There might be
+other scenarios where the roles are changed. Imagine a situation where
+a system automatically starts service advertisements or negotiation
+processes with customers, but the customers are finally in charge to
+create the agreements if they find some offers beneficial. WSAG4J does
+not support such scenarios out of the box, it only provides a
+framework that allows you to implement such scenarios.
+
+Let's come back to your question. The first thing is that when you
+want to pass an EPR of the client to a server you first need a client
+resource that is represented by that EPR. The EPR could for example
+represent a WSRF resource, it could be also some other kind of
+remotely accessible resource. Let's assume you have deployed a servlet
+that represents the initiator at http://foo.org/bar. This servlet
+should be invoked when the server creates the agreement. This can be
+achieved through the following code:
+
+...
+// create an offer based on template1 and set the URL to you servlet
+AgreementOfferType offer = new AgreementOfferType(template1);
+offer.setInitiatorEPR(EndpointReferenceType.Factory.newInstance());
+offer.getInitiatorEPR().addNewAddress().setStringValue("http://foo.org/bar";);
+AgreementClient agreement = factory.createAgreement( offer );
+...
+
+In your create agreement action that is invoked for that offer (the
+action that registered for offers based on template1) you need to
+extract the initiator EPR as follows:
+
+public Agreement createAgreement( AgreementOffer offer )
+{
+    EndpointReferenceType epr = offer.getInitiatorEPR();
+    // now get the address of the EPR, create a java.net.URL and call
+the initiator
+    // servlet through a HTTP GET request
+    ...
+}
+
+As mentioned before, I have tested this with the 2.0.0 version. I'm
+not sure if this also works for 1.0.2. I hope this helps.
